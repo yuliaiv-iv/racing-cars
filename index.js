@@ -3,7 +3,15 @@ const start = document.querySelector(".start");
 const gameArea = document.querySelector(".gameArea");
 
 const car = document.createElement("div");
+// const audio = document.createElement("embed");
+
 car.classList.add("car");
+// audio.src = "./audio/audio.mp3";
+
+const audio = new Audio("./audio/audio.mp3");
+console.log(audio);
+
+const MAX_ENEMY = 8;
 
 const keys = {
   ArrowUp: false,
@@ -15,7 +23,7 @@ const keys = {
 const config = {
   start: false,
   score: 0,
-  speed: 5,
+  speed: 6,
   traffic: 3,
 };
 
@@ -33,14 +41,22 @@ function linePattern() {
   }
 }
 
+function getRendomEnemy(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
 function createTraffic() {
   for (let i = 0; i < getQtyElements(100 * config.traffic); i++) {
     const enemy = document.createElement("div");
     enemy.classList.add("enemy");
     enemy.y = -100 * config.traffic * (i + 1);
-    enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
+    enemy.style.left =
+      Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
     enemy.style.top = enemy.y + "px";
-    enemy.style.background = 'url("./images/enemy.png") center / cover no-repeat';
+    enemy.style.background = `
+      url("./images/enemy${getRendomEnemy(MAX_ENEMY)}.png") 
+      center / cover 
+      no-repeat`;
     gameArea.appendChild(enemy);
   }
 }
@@ -65,14 +81,14 @@ function moveEnemy() {
 
     if (enemy.y >= document.documentElement.clientHeight) {
       enemy.y = -100 * config.traffic;
-      enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
+      enemy.style.left =
+        Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
     }
   });
 }
 
-moveEnemy();
-
 function startGame() {
+  audio.play();
   linePattern();
   createTraffic();
   config.start = true;
@@ -106,13 +122,17 @@ function playGame() {
 }
 
 function startRunning(e) {
-  e.preventDefault();
-  keys[e.key] = true;
+  if (keys.hasOwnProperty(e.key)) {
+    e.preventDefault();
+    keys[e.key] = true;
+  }
 }
 
 function stopRunning(e) {
-  e.preventDefault();
-  keys[e.key] = false;
+  if (keys.hasOwnProperty(e.key)) {
+    e.preventDefault();
+    keys[e.key] = false;
+  }
 }
 
 start.addEventListener("click", startGame);
