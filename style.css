@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-image: url('./images/grass.jpeg');
 }
 ol, ul {
 	list-style: none;
@@ -44,7 +45,7 @@ table {
 
 .gameArea {
   width: 300px;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   margin: auto;
   background: #222;
@@ -65,5 +66,122 @@ table {
   height: 40px;
   background: #fff;
   left: 145px;
+}
 
+.btns {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  min-width: 350px;
+}
+
+.btn {
+  margin: 0;
+  width: 100px;
+  padding: 1rem;
+  text-align: center;
+  z-index: 99;
+  color: #fff;
+  font-size: 20px;
+  background: #2F71E5;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  box-shadow: -10px 10px 15px -3px rgb(0 0 0 / 20%), 0 4px 6px -2px rgb(0 0 0 / 25%);
+}
+
+.btn:hover {
+  background: #347EFF;
+}
+
+.start {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn:disabled {
+  background-color: rgb(161, 161, 161);
+  cursor: initial;
+}
+
+.btn-pause {
+  margin: 0;
+  margin-top: 20px;
+  padding: 1rem;
+  text-align: center;
+  z-index: 99;
+  color: #fff;
+  font-size: 20px;
+  background: #914dfd;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  box-shadow: -10px 10px 15px -3px rgb(0 0 0 / 20%), 0 4px 6px -2px rgb(0 0 0 / 25%);
+}
+
+.btn-pause:hover {
+  background: #9d63fa;
+}
+
+.start-game {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.score {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 1rem 0;
+  z-index: 99;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0);
+  color: rgb(255, 255, 64);
+  z-index: 99;
+  font-size: 32px;
+  font-family: sans-serif;
+  font-weight: 500;
+  display: block;
+}
+
+.show {
+  display: none;
+}
+
+.control-text {
+  padding: 1rem 0;
+  z-index: 99;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.volume {
+  width: 100%;
+}
+
+.control {
+  position: absolute;
+  right: 300px;
+  top: 20px;
 }

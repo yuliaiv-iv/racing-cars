@@ -8,9 +8,22 @@
   <title>Racing Cars</title>
 </head>
 <body>
-  <div class="score"></div>
+  <div class="control">
+    <p class="control-text">Volume Control</p>
+    <input class="volume" type="range" min="0" max="100" step="1"></input>
+  </div>
+  <p class="score">Your Score is: <span class="points">0</span> Points</p>
+  <p class="message show">Ops...Click Start to try again!</p>
   <div class="game">
-    <button class="start">Click here to start the game</button>
+    <div class="btns">
+      <p class="start-game">Choose your Level to Start the Game</p>
+      <div class="start">
+        <button type="button" class="btn level" data-level-game="1">Easy</button>
+        <button type="button" class="btn level" data-level-game="2">Middle</button>
+        <button type="button" class="btn level" data-level-game="3">Hard</button>
+      </div>
+      <button type="button" class="btn-pause pause">Pause the Game</button>
+    </div>
     <div class="gameArea"></div>
   </div>
   <script src="./index.js"></script>
