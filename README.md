@@ -7,6 +7,5 @@
 3.	JS
 
 ### Description
-Control the car using keyboard arrows to avoid crashes with other cars on the road
-Ability to choose between easy, middle or hard level
+Control the car using keyboard arrows to avoid crashes with other cars on the road. An option to choose between easy, middle or hard level
 
